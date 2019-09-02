@@ -10,16 +10,17 @@ const rooReducer = (state=initState, action) => {
                 todos: [...state.todos,{id: action.id,text: action.text,done: false}]
             }
         case "REMOVE_TODO":
+            console.log("REMOVE_TODO")
             const result = state.todos.filter(todo => todo.id !== action.id)
             return {
                 ...state,
                 todos: result
             }
         case "DONE_TODO":
+                console.log("DONE_TODO")
                 const Done = state.todos.map(todo => (todo.id === action.id)? {...todo,done: true}: todo)
                 const DontDone = state.todos.map(todo => (todo.id === action.id)? {...todo,done: false}: todo)
                 const statusDone = state.todos[action.id].done ? DontDone : Done
-                // console.log(statusDone)
             return {
                 ...state,
                 todos: statusDone

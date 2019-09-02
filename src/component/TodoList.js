@@ -8,9 +8,10 @@ const TodoList = (props) => {
     return (
         <ul className="list-group">
             {
-                props.todos.map(item => {
+                props.todos.map((item,index) => {
                     return <TodoItem  id={item.id} text={item.text} 
                                       done={item.done}
+                                      index={index}
                             />
                 })
             }
